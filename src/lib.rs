@@ -280,52 +280,52 @@ pub mod utils {
                             self.line_tree.insert(back_key, back_line);
                         },
                         Some(G::G02) => {
-                            let source = self.positions[self.previous_key(key)?];
-                            let target = self.positions[key];
-                            let radius =-self.line_tree[key].move_radius().unwrap_or(0.001);
-
-                            let front_key= Arc::new(*key.clone()-3);
-                            let peak_key = Arc::new(*key.clone()-2);
-                            let back_key = Arc::new(*key.clone()-1);
-
-                            let mut peak_target = source.arc_midpoint(&target, &radius);
-                            let front_target = source.arc_target_offset(
-                                &peak_target, &radius, &config.tab_size.length);
-                            let back_target = peak_target.arc_source_offset(
-                                &target, &radius, &config.tab_size.length);
-
-                            peak_target.z = config.tab_size.height;
-
-                            let front_line= self.line_tree[key].clone().retarget(&front_target,3);
-                            let peak_line = self.line_tree[key].clone().retarget(&peak_target, 2);
-                            let back_line = self.line_tree[key].clone().retarget(&back_target, 1);
-                            self.line_tree.insert(front_key, front_line);
-                            self.line_tree.insert(peak_key, peak_line);
-                            self.line_tree.insert(back_key, back_line);
+//                            let source = self.positions[self.previous_key(key)?];
+//                            let target = self.positions[key];
+//                            let radius =-self.line_tree[key].move_radius().unwrap_or(0.001);
+//
+//                            let front_key= Arc::new(*key.clone()-3);
+//                            let peak_key = Arc::new(*key.clone()-2);
+//                            let back_key = Arc::new(*key.clone()-1);
+//
+//                            let mut peak_target = source.arc_midpoint(&target, &radius);
+//                            let front_target = source.arc_target_offset(
+//                                &peak_target, &radius, &config.tab_size.length);
+//                            let back_target = peak_target.arc_source_offset(
+//                                &target, &radius, &config.tab_size.length);
+//
+//                            peak_target.z = config.tab_size.height;
+//
+//                            let front_line= self.line_tree[key].clone().retarget(&front_target,3);
+//                            let peak_line = self.line_tree[key].clone().retarget(&peak_target, 2);
+//                            let back_line = self.line_tree[key].clone().retarget(&back_target, 1);
+//                            self.line_tree.insert(front_key, front_line);
+//                            self.line_tree.insert(peak_key, peak_line);
+//                            self.line_tree.insert(back_key, back_line);
                         },
                         Some(G::G03) => {
-                            let source = self.positions[self.previous_key(key)?];
-                            let target = self.positions[key];
-                            let radius = self.line_tree[key].move_radius().unwrap_or(0.001);
-
-                            let front_key= Arc::new(*key.clone()-3);
-                            let peak_key = Arc::new(*key.clone()-2);
-                            let back_key = Arc::new(*key.clone()-1);
-
-                            let mut peak_target = source.arc_midpoint(&target, &radius);
-                            let front_target = source.arc_target_offset(
-                                &peak_target, &radius, &config.tab_size.length);
-                            let back_target = peak_target.arc_source_offset(
-                                &target, &radius, &config.tab_size.length);
-
-                            peak_target.z = config.tab_size.height;
-
-                            let front_line= self.line_tree[key].clone().retarget(&front_target,3);
-                            let peak_line = self.line_tree[key].clone().retarget(&peak_target, 2);
-                            let back_line = self.line_tree[key].clone().retarget(&back_target, 1);
-                            self.line_tree.insert(front_key, front_line);
-                            self.line_tree.insert(peak_key, peak_line);
-                            self.line_tree.insert(back_key, back_line);
+//                            let source = self.positions[self.previous_key(key)?];
+//                            let target = self.positions[key];
+//                            let radius = self.line_tree[key].move_radius().unwrap_or(0.001);
+//
+//                            let front_key= Arc::new(*key.clone()-3);
+//                            let peak_key = Arc::new(*key.clone()-2);
+//                            let back_key = Arc::new(*key.clone()-1);
+//
+//                            let mut peak_target = source.arc_midpoint(&target, &radius);
+//                            let front_target = source.arc_target_offset(
+//                                &peak_target, &radius, &config.tab_size.length);
+//                            let back_target = peak_target.arc_source_offset(
+//                                &target, &radius, &config.tab_size.length);
+//
+//                            peak_target.z = config.tab_size.height;
+//
+//                            let front_line= self.line_tree[key].clone().retarget(&front_target,3);
+//                            let peak_line = self.line_tree[key].clone().retarget(&peak_target, 2);
+//                            let back_line = self.line_tree[key].clone().retarget(&back_target, 1);
+//                            self.line_tree.insert(front_key, front_line);
+//                            self.line_tree.insert(peak_key, peak_line);
+//                            self.line_tree.insert(back_key, back_line);
                         },
                         _ => {}
                     }
@@ -341,16 +341,16 @@ pub mod utils {
                 Some(G::G01) => {
                     return Ok(source.linear_distance(&target));
                 },
-                Some(G::G02) => {
-                    let rad = line.move_radius();
-                    ensure!(rad.is_some(), "invalid radius at line {:?}", line);
-                    return Ok(source.arc_distance(&target, &rad.unwrap()));
-                },
-                Some(G::G03) => {
-                    let rad = line.move_radius();
-                    ensure!(rad.is_some(), "invalid radius at line {:?}", line);
-                    return Ok(source.arc_distance(&target, &rad.unwrap()));
-                },
+//                Some(G::G02) => {
+//                    let rad = line.move_radius();
+//                    ensure!(rad.is_some(), "invalid radius at line {:?}", line);
+//                    return Ok(source.arc_distance(&target, &rad.unwrap()));
+//                },
+//                Some(G::G03) => {
+//                    let rad = line.move_radius();
+//                    ensure!(rad.is_some(), "invalid radius at line {:?}", line);
+//                    return Ok(source.arc_distance(&target, &rad.unwrap()));
+//                },
                 _ => { bail!("canot calculate distance at line {:?}", line); },
             }
         }
