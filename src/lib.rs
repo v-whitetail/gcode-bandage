@@ -100,9 +100,9 @@ pub mod utils {
         }
         fn add(&self, other: &Self) -> Self {
             Self {
-                x: (other.x - self.x),
-                y: (other.y - self.y),
-                z: (other.z - self.z),
+                x: (other.x + self.x),
+                y: (other.y + self.y),
+                z: (other.z + self.z),
             }
         }
         fn unit_vector(&self, other: &Self) -> Self {
@@ -141,9 +141,9 @@ pub mod utils {
             (x_norm + y_norm + z_norm).sqrt()
         }
         fn linear_midpoint(&self, other: &Self) -> Self {
-            let x = 0.5 * (other.x - self.x);
-            let y = 0.5 * (other.y - self.y);
-            let z = 0.5 * (other.z - self.z);
+            let x = 0.5 * (other.x + self.x);
+            let y = 0.5 * (other.y + self.y);
+            let z = 0.5 * (other.z + self.z);
             Self{x, y, z}
         }
         fn linear_target_offset(&self, other: &Self, o: &f32) -> Self {
