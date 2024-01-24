@@ -1,0 +1,20 @@
+tab_quantity = 2
+
+[tab_size]
+length = 0.75
+height = 0.25
+
+[limit_x]
+start = 0.0
+end = 47.5
+
+[limit_y]
+start = 0.0
+end = 143.5
+
+[limit_z]
+start = -0.0625
+
+[bottom_layer]
+start = -0.0625
+end = 0.0625
